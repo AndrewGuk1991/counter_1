@@ -1,5 +1,4 @@
 
-
 .settingsCounter {
     border: 1px solid aqua;
     border-radius: 5px;
@@ -8,6 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px 20px;
+    position: relative;
 }
 
 .inputWrapper {
@@ -22,4 +23,23 @@ input {
     padding: 10px;
     width: 50%;
     font-size: 1em;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1em;
+    color: aqua;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.helperMessage {
+    color: red;
+    font-weight: bold;
+    font-size: 22px;
+    position: absolute;
+    bottom: 20px
 }

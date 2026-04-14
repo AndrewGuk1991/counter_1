@@ -16,7 +16,7 @@ export const Count = ({startCount, maxCount}: Props) => {
 
     return (
         <div className={counterStyles.boxStyles}>
-            <div className={countStyles.count}>
+            <div className={countStyles.count} style={{color: currentCount === maxCount? 'red': 'aqua'}}>
                 {currentCount}
             </div>
             <div className={counterStyles.buttonsContainer}>

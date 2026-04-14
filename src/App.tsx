@@ -10,8 +10,18 @@ function App() {
 
   return (
     <div className="app">
-        <SettingsCounter />
-        <Count startCount={startCount} maxCount={maxCount}/>
+        <SettingsCounter
+            onChangeSettings={(newStartCount, newMaxCount) => {
+                setStartCount(newStartCount)
+                setMaxCount(newMaxCount)
+            }}
+            startCount={startCount}
+            maxCount={maxCount}
+        />
+        <Count
+            startCount={startCount}
+            maxCount={maxCount}
+        />
     </div>
   )
 }
