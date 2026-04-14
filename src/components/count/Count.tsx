@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import countStyles from './Count.module.css'
-import counterStyles from '../../common/styles/Common.module.css'
+import commonStyles from '../../common/styles/Common.module.css'
 
 type Props = {
     startCount: number
@@ -15,11 +15,11 @@ export const Count = ({startCount, maxCount}: Props) => {
     }, [startCount, maxCount]);
 
     return (
-        <div className={counterStyles.boxStyles}>
+        <div className={commonStyles.boxStyles}>
             <div className={countStyles.count} style={{color: currentCount === maxCount? 'red': 'aqua'}}>
                 {currentCount}
             </div>
-            <div className={counterStyles.buttonsContainer}>
+            <div className={commonStyles.buttonsContainer}>
                 <button
                     disabled={currentCount === maxCount}
                     onClick={() => {

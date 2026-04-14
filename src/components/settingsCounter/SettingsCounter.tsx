@@ -1,4 +1,4 @@
-import counterStyles from '../../common/styles/Common.module.css'
+import commonStyles from '../../common/styles/Common.module.css'
 import settingsCounterStyles from './SettingsCounter.module.css'
 import {useState} from "react";
 
@@ -20,11 +20,11 @@ export const SettingsCounter = (
     const validSettingsValued = currentMaxCount > currentStartCount
 
     return (
-        <div className={counterStyles.boxStyles}>
+        <div className={commonStyles.boxStyles}>
             <div className={settingsCounterStyles.settingsCounter}>
                 <div className={settingsCounterStyles.inputWrapper}>
                     <label>
-                        <span>Max Value:</span>
+                        <span>max value:</span>
                         <input
                             style={{backgroundColor: !validSettingsValued ? 'red': 'white'}}
                             value={currentMaxCount}
@@ -33,7 +33,7 @@ export const SettingsCounter = (
                         />
                     </label>
                     <label>
-                        <span>Start Value:</span>
+                        <span>start value:</span>
                         <input
                             style={{backgroundColor: !validSettingsValued ? 'red': 'white'}}
                             value={currentStartCount}
@@ -44,9 +44,9 @@ export const SettingsCounter = (
                 </div>
                 {!validSettingsValued && <div className={settingsCounterStyles.helperMessage}>Enter valid values</div>}
             </div>
-            <div className={counterStyles.buttonsContainer}>
+            <div className={commonStyles.buttonsContainer}>
                 <button
-                    disabled={!validSettingsValued}
+                    disabled={!validSettingsValued || (startCount === currentStartCount && maxCount === currentMaxCount)}
                     onClick={() => {onChangeSettings(currentStartCount, currentMaxCount)}}
                 >
                     set
