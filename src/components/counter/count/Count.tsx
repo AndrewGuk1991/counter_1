@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import countStyles from './Count.module.css'
 import commonStyles from '../../../common/styles/Common.module.css'
 import {useNavigate} from "react-router-dom";
+import {PATH} from "../Counter.tsx";
 
 type Props = {
     startCount: number
@@ -36,7 +37,7 @@ export const Count = ({startCount, maxCount}: Props) => {
                     }}
                 >reset</button>
                 <button
-                    onClick={() => navigate('/settings')}
+                    onClick={() => navigate(PATH.SETTINGS)}
                 >
                         set
                 </button>

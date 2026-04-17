@@ -2,6 +2,7 @@ import commonStyles from '../../../common/styles/Common.module.css'
 import settingsCounterStyles from './SettingsCounter.module.css'
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {PATH} from "../Counter.tsx";
 
 type Props = {
     onChangeSettings: (newStartCount: number, newMaxCount: number) => void
@@ -52,7 +53,7 @@ export const SettingsCounter = (
                     disabled={!validSettingsValued || (startCount === currentStartCount && maxCount === currentMaxCount)}
                     onClick={() => {
                         onChangeSettings(currentStartCount, currentMaxCount)
-                        navigate('/count')
+                        navigate(PATH.COUNT)
                     }}
                 >
                     set

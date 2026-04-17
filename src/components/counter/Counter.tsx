@@ -5,6 +5,12 @@ import styles from './Counter.module.css'
 import {Routes, Route, Navigate} from "react-router-dom";
 import {Error} from "../error/Error.tsx";
 
+export const PATH = {
+    COUNT: "/count",
+    SETTINGS: "/settings",
+    ERROR: "/error",
+
+} as const
 
 export const Counter = () => {
     const [startCount, setStartCount] = useState(() => {
@@ -25,13 +31,13 @@ export const Counter = () => {
     return (
         <div className={styles.counter}>
             <Routes>
-                <Route path="/" element={<Navigate to="/count" replace/>} />
+                <Route path="/" element={<Navigate to={PATH.COUNT}/>} />
                 <Route
-                    path="/count"
+                    path={PATH.COUNT}
                     element={<Count startCount={startCount} maxCount={maxCount} />}
                 />
                 <Route
-                    path={'/settings'}
+                    path={PATH.SETTINGS}
                     element={<SettingsCounter
                         onChangeSettings={(newStartCount, newMaxCount) => {
                             setStartCount(newStartCount)
@@ -41,8 +47,9 @@ export const Counter = () => {
                         maxCount={maxCount}
                     />}
                 />
-                <Route path={'/error'} element={<Error/>}/>
-                <Route path={'/*'} element={<Navigate to={'/error'}/>}/>
+                {/*<Route path={PATH.ERROR} element={<Error/>}/>*/}
+                {/*<Route path={'/*'} element={<Navigate to={PATH.ERROR}/>}/>*/}
+                <Route path={'/*'} element={<Error/>}/>
             </Routes>
         </div>
     );
