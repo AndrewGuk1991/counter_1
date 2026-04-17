@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import countStyles from './Count.module.css'
-import commonStyles from '../../common/styles/Common.module.css'
+import commonStyles from '../../../common/styles/Common.module.css'
+import {useNavigate} from "react-router-dom";
 
 type Props = {
     startCount: number
@@ -13,6 +14,8 @@ export const Count = ({startCount, maxCount}: Props) => {
     useEffect(() => {
         setCount(startCount)
     }, [startCount, maxCount]);
+
+    const navigate = useNavigate()
 
     return (
         <div className={commonStyles.boxStyles}>
@@ -32,7 +35,11 @@ export const Count = ({startCount, maxCount}: Props) => {
                         setCount(startCount)
                     }}
                 >reset</button>
-                <button>set</button>
+                <button
+                    onClick={() => navigate('/settings')}
+                >
+                        set
+                </button>
             </div>
         </div>
     );

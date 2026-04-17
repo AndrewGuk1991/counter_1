@@ -1,6 +1,7 @@
-import commonStyles from '../../common/styles/Common.module.css'
+import commonStyles from '../../../common/styles/Common.module.css'
 import settingsCounterStyles from './SettingsCounter.module.css'
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 type Props = {
     onChangeSettings: (newStartCount: number, newMaxCount: number) => void
@@ -18,6 +19,8 @@ export const SettingsCounter = (
     const [currentMaxCount, setCurrentMaxCount] = useState(maxCount)
 
     const validSettingsValued = currentMaxCount > currentStartCount
+
+    const navigate = useNavigate()
 
     return (
         <div className={commonStyles.boxStyles}>
@@ -47,7 +50,10 @@ export const SettingsCounter = (
             <div className={commonStyles.buttonsContainer}>
                 <button
                     disabled={!validSettingsValued || (startCount === currentStartCount && maxCount === currentMaxCount)}
-                    onClick={() => {onChangeSettings(currentStartCount, currentMaxCount)}}
+                    onClick={() => {
+                        onChangeSettings(currentStartCount, currentMaxCount)
+                        navigate('/count')
+                    }}
                 >
                     set
                 </button>

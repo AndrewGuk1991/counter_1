@@ -1,0 +1,10 @@
+
+.counter {
+    min-height: 100vh;
+    background: #404040;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
