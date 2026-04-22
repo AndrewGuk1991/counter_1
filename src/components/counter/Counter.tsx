@@ -8,7 +8,7 @@ import {Error} from "../error/Error.tsx";
 export const PATH = {
     COUNT: "/count",
     SETTINGS: "/settings",
-    ERROR: "/error",
+    // ERROR: "/error",
 
 } as const
 
