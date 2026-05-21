@@ -55,8 +55,7 @@ export const SettingsCounter = (
                         onChangeSettings(currentStartCount, currentMaxCount)
                         navigate(PATH.COUNT)
                     }}
-                >
-                    set
+                >set
                 </button>
             </div>
         </div>
