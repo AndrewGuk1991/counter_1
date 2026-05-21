@@ -3,9 +3,11 @@ import settingsCounterStyles from './SettingsCounter.module.css'
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {PATH} from "../Counter.tsx";
+import {useAppDispatch} from "../../../common/hooks/useAppDispatch.ts";
+import {changeSettingsAC} from "../../../bll/counterReducer.ts";
 
 type Props = {
-    onChangeSettings: (newStartCount: number, newMaxCount: number) => void
+    // onChangeSettings: (newStartCount: number, newMaxCount: number) => void
     startCount: number
     maxCount: number
 }
@@ -14,7 +16,7 @@ export const SettingsCounter = (
     {
         startCount,
         maxCount,
-        onChangeSettings,
+        // onChangeSettings,
     }: Props) => {
     const [currentStartCount, setCurrentStartCount] = useState(startCount)
     const [currentMaxCount, setCurrentMaxCount] = useState(maxCount)
@@ -22,6 +24,8 @@ export const SettingsCounter = (
     const validSettingsValued = currentMaxCount > currentStartCount
 
     const navigate = useNavigate()
+
+    const dispatch = useAppDispatch()
 
     return (
         <div className={commonStyles.boxStyles}>
@@ -52,7 +56,8 @@ export const SettingsCounter = (
                 <button
                     disabled={!validSettingsValued || (startCount === currentStartCount && maxCount === currentMaxCount)}
                     onClick={() => {
-                        onChangeSettings(currentStartCount, currentMaxCount)
+                        // onChangeSettings(currentStartCount, currentMaxCount)
+                        dispatch(changeSettingsAC({startCount: currentStartCount, maxCount: currentMaxCount}))
                         navigate(PATH.COUNT)
                     }}
                 >set
