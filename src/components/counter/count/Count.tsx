@@ -14,7 +14,7 @@ export const Count = () => {
     const [currentCount, setCount] = useState(startCount)
     useEffect(() => {
         setCount(startCount)
-    }, [startCount, maxCount]);
+    }, [startCount]);
 
     const navigate = useNavigate()
 
