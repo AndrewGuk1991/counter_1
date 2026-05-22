@@ -3,13 +3,13 @@ import countStyles from './Count.module.css'
 import commonStyles from '../../../common/styles/Common.module.css'
 import {useNavigate} from "react-router-dom";
 import {PATH} from "../Counter.tsx";
+import {useAppSelector} from "../../../common/hooks/useAppSelector.ts";
+import {selectMaxCount, selectStartCount} from "../../../bll/counterSelectors.ts";
 
-type Props = {
-    startCount: number
-    maxCount: number
-}
+export const Count = () => {
 
-export const Count = ({startCount, maxCount}: Props) => {
+    const startCount = useAppSelector(selectStartCount)
+    const maxCount = useAppSelector(selectMaxCount)
 
     const [currentCount, setCount] = useState(startCount)
     useEffect(() => {

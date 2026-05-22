@@ -5,19 +5,15 @@ import {useNavigate} from "react-router-dom";
 import {PATH} from "../Counter.tsx";
 import {useAppDispatch} from "../../../common/hooks/useAppDispatch.ts";
 import {changeSettingsTC} from "../../../bll/counterReducer.ts";
+import {useAppSelector} from "../../../common/hooks/useAppSelector.ts";
+import {selectMaxCount, selectStartCount} from "../../../bll/counterSelectors.ts";
 
-type Props = {
-    // onChangeSettings: (newStartCount: number, newMaxCount: number) => void
-    startCount: number
-    maxCount: number
-}
 
-export const SettingsCounter = (
-    {
-        startCount,
-        maxCount,
-        // onChangeSettings,
-    }: Props) => {
+export const SettingsCounter = () => {
+
+    const startCount = useAppSelector(selectStartCount)
+    const maxCount = useAppSelector(selectMaxCount)
+
     const [currentStartCount, setCurrentStartCount] = useState(startCount)
     const [currentMaxCount, setCurrentMaxCount] = useState(maxCount)
 
@@ -56,8 +52,6 @@ export const SettingsCounter = (
                 <button
                     disabled={!validSettingsValued || (startCount === currentStartCount && maxCount === currentMaxCount)}
                     onClick={() => {
-                        // onChangeSettings(currentStartCount, currentMaxCount)
-                        // dispatch(changeSettingsAC({startCount: currentStartCount, maxCount: currentMaxCount}))
                         dispatch(changeSettingsTC({startCount: currentStartCount, maxCount: currentMaxCount}))
                         navigate(PATH.COUNT)
                     }}
