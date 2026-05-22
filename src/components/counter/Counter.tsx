@@ -1,8 +1,7 @@
-
 import {SettingsCounter} from "./settingsCounter/SettingsCounter.tsx";
 import {Count} from "./count/Count.tsx";
 import styles from './Counter.module.css'
-import {Routes, Route, Navigate} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {Error} from "../error/Error.tsx";
 import {useAppSelector} from "../../common/hooks/useAppSelector.ts";
 
@@ -14,6 +13,11 @@ export const PATH = {
 } as const
 
 export const Counter = () => {
+    // const dispatch = useAppDispatch()
+    //
+    // useEffect(() => {
+    //     dispatch(getValuesFromLocalStorageTC())
+    // }, []);
 
     const startCount = useAppSelector(state => state.counter.startCount)
     const maxCount = useAppSelector(state => state.counter.maxCount)

@@ -4,7 +4,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {PATH} from "../Counter.tsx";
 import {useAppDispatch} from "../../../common/hooks/useAppDispatch.ts";
-import {changeSettingsAC} from "../../../bll/counterReducer.ts";
+import {changeSettingsTC} from "../../../bll/counterReducer.ts";
 
 type Props = {
     // onChangeSettings: (newStartCount: number, newMaxCount: number) => void
@@ -57,7 +57,8 @@ export const SettingsCounter = (
                     disabled={!validSettingsValued || (startCount === currentStartCount && maxCount === currentMaxCount)}
                     onClick={() => {
                         // onChangeSettings(currentStartCount, currentMaxCount)
-                        dispatch(changeSettingsAC({startCount: currentStartCount, maxCount: currentMaxCount}))
+                        // dispatch(changeSettingsAC({startCount: currentStartCount, maxCount: currentMaxCount}))
+                        dispatch(changeSettingsTC({startCount: currentStartCount, maxCount: currentMaxCount}))
                         navigate(PATH.COUNT)
                     }}
                 >set
