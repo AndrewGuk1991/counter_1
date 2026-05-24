@@ -4,10 +4,8 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {PATH} from "../Counter.tsx";
 import {useAppDispatch} from "../../../common/hooks/useAppDispatch.ts";
-import {changeSettingsTC} from "../../../bll/counterReducer.ts";
+import {changeSettingsTC, selectMaxCount, selectStartCount} from "../../../bll/counter-slice.ts";
 import {useAppSelector} from "../../../common/hooks/useAppSelector.ts";
-import {selectMaxCount, selectStartCount} from "../../../bll/counterSelectors.ts";
-
 
 export const SettingsCounter = () => {
 

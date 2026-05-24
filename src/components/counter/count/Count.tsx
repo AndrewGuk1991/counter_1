@@ -4,7 +4,7 @@ import commonStyles from '../../../common/styles/Common.module.css'
 import {useNavigate} from "react-router-dom";
 import {PATH} from "../Counter.tsx";
 import {useAppSelector} from "../../../common/hooks/useAppSelector.ts";
-import {selectMaxCount, selectStartCount} from "../../../bll/counterSelectors.ts";
+import {selectMaxCount, selectStartCount} from "../../../bll/counter-slice.ts";
 
 export const Count = () => {
 
