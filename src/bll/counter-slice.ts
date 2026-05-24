@@ -30,8 +30,24 @@ export const {changeSettingsAC} = counterSlice.actions;
 export const {selectStartCount, selectMaxCount} = counterSlice.selectors
 
 export const changeSettingsTC = (values: CounterState) => (dispatch: AppDispatch) => {
-    localStorage.setItem('startCount', String(values.startCount))
-    localStorage.setItem('maxCount', JSON.stringify(values.maxCount))
-    dispatch(changeSettingsAC(values))
+    try {
+        localStorage.setItem('startCount', String(values.startCount))
+        localStorage.setItem('maxCount', JSON.stringify(values.maxCount))
+        dispatch(changeSettingsAC(values))
+    } catch (e) {
+        console.log("Ошибка записи в localStorage", e)
+    }
 }
+
+// export const changeSettingsTC = createAsyncThunk(`${counterSlice.name}/changeSettingsTC`,
+//     async (values: CounterState, {dispatch, rejectWithValue}) => {
+//         try {
+//             localStorage.setItem('startCount', String(values.startCount))
+//             localStorage.setItem('maxCount', JSON.stringify(values.maxCount))
+//             dispatch(changeSettingsAC(values))
+//         } catch (e) {
+//             return rejectWithValue(e)
+//         }
+//     })
+
 
